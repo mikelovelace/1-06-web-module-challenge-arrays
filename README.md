@@ -19,7 +19,6 @@ Your challenge today will be to work with their array of ice cream flavors to ac
 
 Using VSCode and Command Line:
 
-
 1. Fork the repo
 2. Go into canvas and connect your repo to codegrade
 3. Clone your forked version of the repo
