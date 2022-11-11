@@ -182,7 +182,7 @@ Use the filterByWord function below to do the following:
 // create an empty array to hold new flavors
 // iterate through the full length of the array 
 // at every iteration, check the index of the array and see if it includes the keyword
-// when the keyword matches, push that item from the array that trhat particular index in to the new array
+// when the keyword matches, push that item from the array at that index in to the new array
 function filterByWord(arr, flavor){
   let filterFlavors = []
   for(let i = 0; i < arr.length; i++) {
