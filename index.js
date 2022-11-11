@@ -46,10 +46,10 @@ Use the copy function below to do the following:
 */
 
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(arr){
+  return [...arr]
 }
-
+console.log(copy(originalFlavors))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -63,10 +63,14 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-  /*your code here*/
+function is31Flavors(arr){
+  if(arr.length === 31) {
+    return true
+  } else {
+    return false
+  }
  }
-
+console.log(is31Flavors(originalFlavors))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -81,11 +85,11 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(arr, flavor){
+  arr.unshift(flavor)
+  return arr;
  }
-
+console.log(addFlavor(originalFlavors, "Rainbow Sherbert"))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -100,10 +104,11 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(arr){
+ arr.pop()
+ return arr
 }
-
+console.log(removeLastFlavor(originalFlavors))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -118,14 +123,15 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(arr, index){
+  return arr[index]
 }
-
+console.log(getFlavorByIndex(originalFlavors, 2))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
+As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
+as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
 
 Use the removeFlavorByName function below to do the following:
   1. Receive an array in the first parameter that will take the flavors array as an argument
@@ -138,15 +144,26 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+// iterate over the whole length of the array
+// at every iteration, check the index and see if it matches the flavor passed in as an argument when the function is invoked
+// if the flavor name is listed at that index in the array, then remove that 1 item using splice
+function removeFlavorByName(arr, flavor){
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === flavor) {
+      arr.splice(i, 1)
+    }
+  }
+  return arr
 }
+console.log(removeFlavorByName(originalFlavors, "Rocky Road"))
 
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
-Your task is to write a function that checks every item in the array for a string and returns a new array called filteredArray with only the values that contain the received string. This would allow you to be able to filter for "Vanilla", "Sherbet", "Lemon" etc. when different holidays roll around by passing in those specific strings.
+Your task is to write a function that checks every item in the array for a string and returns a new array called filteredArray with only 
+the values that contain the received string. This would allow you to be able to filter for "Vanilla", "Sherbet", "Lemon" etc. when different 
+holidays roll around by passing in those specific strings.
 
 Use the filterByWord function below to do the following:
   1. Receive an array in the first parameter that will take the flavors array as an argument
@@ -162,11 +179,20 @@ Use the filterByWord function below to do the following:
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-
-function filterByWord(/*your code here*/){
-  /*your code here*/
+// create an empty array to hold new flavors
+// iterate through the full length of the array 
+// at every iteration, check the index of the array and see if it includes the keyword
+// when the keyword matches, push that item from the array that trhat particular index in to the new array
+function filterByWord(arr, flavor){
+  let filterFlavors = []
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i].includes(flavor)) {
+      filterFlavors.push(arr[i])
+    }
+  }
+  return filterFlavors;
 }
-
+console.log(filterByWord(originalFlavors, "Chocolate"))
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
